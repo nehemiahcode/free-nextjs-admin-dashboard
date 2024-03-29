@@ -21,6 +21,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@tanstack/react-table": "^8.15.0",
     "apexcharts": "^3.45.2",
+    "axios": "^1.6.8",
     "chartjs": "^0.3.24",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

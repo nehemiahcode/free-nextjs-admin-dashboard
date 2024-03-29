@@ -32,9 +32,8 @@ const SignIn: React.FC = () => {
         // Store token and userId in local storage
         localStorage.setItem("token", token);
         localStorage.setItem("userId", _id);
-
+        router.push("/rooms")
         toast.success("Logged in successful");
-        router.push('/profile');
       } else {
         const data = await response.json();
         toast.error(data.message || " Something went wrong");
