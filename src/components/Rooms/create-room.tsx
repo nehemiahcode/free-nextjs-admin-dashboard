@@ -69,7 +69,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                 location: formData.location,
             };
 
-            const response = await fetch(`${endpoint(['room', 'create'])}`, {
+            const response = await fetch(`${endpoint(['rooms', 'create'])}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/form-data",

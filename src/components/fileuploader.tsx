@@ -38,7 +38,7 @@ export function HotelImageUploader({ fieldChange, photo1, otherPhotos1 }: propTy
                 formData.append('images', photo1);
             }
 
-            const response = await axios.post("YOUR_UPLOAD_ENDPOINT", formData, {
+            const response = await axios.post("https://flexstay-backend.onrender.com/api/rooms/create", formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }

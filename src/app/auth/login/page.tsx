@@ -40,6 +40,7 @@ const SignIn: React.FC = () => {
       }
     } catch (error) {
       console.error("Error occurred:", error);
+      toast.error("Something went wrong");
     }
   };
   
