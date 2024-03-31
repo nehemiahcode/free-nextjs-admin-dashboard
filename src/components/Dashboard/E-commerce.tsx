@@ -13,7 +13,7 @@ import { DataTableDemo, Payment } from "../Booking-table/Table";
 const ECommerce: React.FC = () => {
   const CardData = [
     { title: "Total Bookings", counts: "$45,2K", icon: <IoDuplicateOutline size={25} />, rate: "0.2%" },
-    { title: "Room Occupancy Rate", counts: "$3.456K", icon: <IoBedOutline size={25} />, rate: "0.43%" },
+    { title: "Total Rooms", counts: "$3.456K", icon: <IoBedOutline size={25} />, rate: "0.43%" },
     { title: "Revenue", counts: "$45,2K", icon: <IoCashOutline size={25} />, rate: "0.55%" },
     { title: "Estimate", counts: "$45,2K", icon: <BsHouses size={25} />, rate: "22.2%" },
   ]

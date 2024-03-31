@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { MdOutlineBedroomChild } from "react-icons/md";
-import { SlOptionsVertical } from "react-icons/sl";
 import { IoPricetagsOutline } from "react-icons/io5";
 import { TbListDetails } from "react-icons/tb";
 import { PiLightbulbFilamentLight } from "react-icons/pi";
@@ -11,28 +10,24 @@ import { CiSearch } from "react-icons/ci";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { HiOutlineLockClosed } from "react-icons/hi2";
 import { IoLockOpenOutline } from "react-icons/io5";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuRadioItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { IoMdAdd } from "react-icons/io";
 import { CreateRoom } from "./create-room";
-import { UpdateRoom } from "./update-room";
+import Link from "next/link";
+import { Skeleton } from "../ui/skeleton";
 
 interface RoomCards {
     RoomCard: any[];
+    isLoading: boolean;
 }
 
-export default function RoomsPage({ RoomCard }: RoomCards) {
+export default function RoomsPage({ RoomCard, isLoading }: RoomCards) {
     const [searchQuery, setSearchQuery] = useState<string>("");
 
     const filteredRoomCards = RoomCard.filter(
         (card) =>
-            card.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            card.status.toLowerCase().includes(searchQuery.toLowerCase()),
+            card.name.toLowerCase().includes(searchQuery.toLowerCase()) 
     );
+
     return (
         <section className="w-full">
             <div className="relative my-4 sm:max-w-sm">
@@ -48,20 +43,30 @@ export default function RoomsPage({ RoomCard }: RoomCards) {
                 </span>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 lg:p-0">
-                {filteredRoomCards.map((card, _id) => (
-                    <div
+                {isLoading ? (
+                    // Skeletons for loading
+                    Array.from({ length: 6 }).map((_, index) => (
+                        <div key={index} className=" grid">
+                            <Skeleton className=" h-[300px] my-3 bg-slate-300 dark:bg-slate-300" />
+                            <Skeleton className="h-[300px] bg-slate-300 dark:bg-slate-300" />
+                        </div>
+                    ))
+                ) : filteredRoomCards.length > 0 ? (
+                    // Render room cards
+                    filteredRoomCards.map((card, _id) => (
+                        <Link href={`/rooms/${card._id}`}
                         key={_id}
                         className="flex h-[350px] flex-col rounded-lg bg-white shadow-11 dark:bg-slate-950"
                     >
                         <div className="relative h-[50%]">
                             <Image
-                                src={card.Photo}
+                                src={card.photo}
                                 alt=""
                                 layout="fill"
                                 objectFit="cover"
                                 className=" rounded-t-lg object-scale-down"
                             />
-                            <DropdownMenu>
+                            {/* <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button
                                         size={"icon"}
@@ -92,7 +97,7 @@ export default function RoomsPage({ RoomCard }: RoomCards) {
                                         Delete
                                     </DropdownMenuRadioItem>
                                 </DropdownMenuContent>
-                            </DropdownMenu>
+                            </DropdownMenu> */}
                         </div>
                         <div className="flex flex-col p-2">
                             <div className="flex items-center gap-x-2">
@@ -134,16 +139,27 @@ export default function RoomsPage({ RoomCard }: RoomCards) {
                                 <p className="text-sm">{card.status}</p>
                             </div>
                         </div>
-                    </div>
-                ))}
-                {filteredRoomCards.length <= 0 && (
-                    <div className=" flex items-center gap-x-4 rounded-md bg-white p-3 shadow-10 dark:bg-slate-900 sm:max-w-sm ">
+                    </Link>
+                    ))
+                ) : (
+                    // No rooms found message
+                    <div className="flex items-center gap-x-4 rounded-md bg-white p-3 shadow-10 dark:bg-slate-900 sm:max-w-sm ">
                         <span>
                             <RiErrorWarningLine size={25} />
                         </span>
-                        <span> No rooms found</span>
+                        <span>No rooms found</span>
                     </div>
                 )}
+                
+                {/* {!isLoading && filteredRoomCards.length <= 0 && (
+                    // No rooms yet message
+                    <div className="flex items-center gap-x-4 rounded-md bg-white p-3 shadow-10 dark:bg-slate-900 sm:max-w-sm ">
+                        <span>
+                            <RiErrorWarningLine size={25} />
+                        </span>
+                        <span>No rooms yet</span>
+                    </div>
+                )} */}
                 <CreateRoom
                     Trigger={
                         <Button
@@ -158,3 +174,4 @@ export default function RoomsPage({ RoomCard }: RoomCards) {
         </section>
     );
 }
+

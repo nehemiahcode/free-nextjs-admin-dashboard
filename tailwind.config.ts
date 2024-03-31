@@ -1,11 +1,13 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
+const {nextui} = require("@nextui-org/theme");
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './node_modules/@nextui-org/theme/dist/components/(image|button).js'
   ],
   darkMode: "class",
   theme: {
@@ -157,57 +159,6 @@ const config: Config = {
         230: "57.5rem",
         242.5: "60.625rem",
       },
-      maxWidth: {
-        2.5: "0.625rem",
-        3: "0.75rem",
-        4: "1rem",
-        7: "1.75rem",
-        9: "2.25rem",
-        10: "2.5rem",
-        10.5: "2.625rem",
-        11: "2.75rem",
-        13: "3.25rem",
-        14: "3.5rem",
-        15: "3.75rem",
-        16: "4rem",
-        22.5: "5.625rem",
-        25: "6.25rem",
-        30: "7.5rem",
-        34: "8.5rem",
-        35: "8.75rem",
-        40: "10rem",
-        42.5: "10.625rem",
-        44: "11rem",
-        45: "11.25rem",
-        60: "15rem",
-        70: "17.5rem",
-        90: "22.5rem",
-        94: "23.5rem",
-        125: "31.25rem",
-        132.5: "33.125rem",
-        142.5: "35.625rem",
-        150: "37.5rem",
-        180: "45rem",
-        203: "50.75rem",
-        230: "57.5rem",
-        242.5: "60.625rem",
-        270: "67.5rem",
-        280: "70rem",
-        292.5: "73.125rem",
-      },
-      maxHeight: {
-        35: "8.75rem",
-        70: "17.5rem",
-        90: "22.5rem",
-        550: "34.375rem",
-        300: "18.75rem",
-      },
-      minWidth: {
-        22.5: "5.625rem",
-        42.5: "10.625rem",
-        47.5: "11.875rem",
-        75: "18.75rem",
-      },
       zIndex: {
         999999: "999999",
         99999: "99999",
@@ -330,6 +281,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 };
 export default config;
