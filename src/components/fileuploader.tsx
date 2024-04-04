@@ -26,32 +26,32 @@ export function HotelImageUploader({ fieldChange, photo1, otherPhotos1 }: propTy
         setFileUrls(updatedUrls.map(url => typeof url === 'string' ? url : URL.createObjectURL(url)));
       }, [photo1, otherPhotos1]);
 
-    // const uploadFiles = async () => {
-    //     try {
-    //         setUploading(true);
+        // const uploadFiles = async () => {
+        //     try {
+        //         setUploading(true);
 
-    //         const formData = new FormData();
-    //         otherPhotos1?.forEach(file => {
-    //             formData.append('images', file);
-    //         });
-    //         if (photo1) {
-    //             formData.append('images', photo1);
-    //         }
+        //         const formData = new FormData();
+        //         otherPhotos1?.forEach(file => {
+        //             formData.append('images', file);
+        //         });
+        //         if (photo1) {
+        //             formData.append('images', photo1);
+        //         }
 
-    //         const response = await axios.post("https://flexstay-backend.onrender.com/api/rooms/create", formData, {
-    //             headers: {
-    //                 'Content-Type': 'multipart/form-data',
-    //             }
-    //         });
+        //         const response = await axios.post("https://flexstay-backend.onrender.com/api/rooms/create", formData, {
+        //             headers: {
+        //                 'Content-Type': 'multipart/form-data',
+        //             }
+        //         });
 
-    //         // Handle response as needed
-    //         console.log('Upload successful', response.data);
-    //     } catch (error) {
-    //         console.error('Error uploading files', error);
-    //     } finally {
-    //         setUploading(false);
-    //     }
-    // };
+        //         // Handle response as needed
+        //         console.log('Upload successful', response.data);
+        //     } catch (error) {
+        //         console.error('Error uploading files', error);
+        //     } finally {
+        //         setUploading(false);
+        //     }
+        // };
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,

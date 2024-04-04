@@ -126,7 +126,7 @@ export default function RoomsPage({ RoomCard, isLoading }: RoomCards) {
                                 <p>
                                     <PiLightbulbFilamentLight />
                                 </p>
-                                <p>{card.amenities}</p>
+                                <p>{card.amenities.join(",")}</p>
                             </div>
                             <div className="flex items-center gap-x-2">
                                 <p>

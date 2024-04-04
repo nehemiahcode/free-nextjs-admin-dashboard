@@ -5,65 +5,48 @@ import CardDataStats from "../CardDataStats";
 import { IoDuplicateOutline } from "react-icons/io5";
 import { BsHouses } from "react-icons/bs";
 import { IoBedOutline } from "react-icons/io5";
-import { IoCashOutline } from "react-icons/io5";
-import { DataTableDemo, Payment } from "../Booking-table/Table";
+import { DataTableDemo, } from "../Booking-table/Table";
+import useGetBookings from "@/hooks/useGetBookings";
+import useGetRooms from "@/hooks/useGetRooms";
+
 
 
 
 const ECommerce: React.FC = () => {
+  const { bookings, loading } = useGetBookings({
+    userToken: localStorage.getItem("token") || "",
+  });
+
+  const { roomDetails, isLoading } = useGetRooms({
+    userToken: localStorage.getItem("token") || "",
+  })
+
+
+  const totalCapacity = roomDetails?.length; // Total capacity of the room
+  const occupancy = roomDetails?.length || 0; // Current occupancy
+
+  // Calculate occupancy percentage
+  const occupancyPercentage = (occupancy / totalCapacity) * 100;
+
+
+  const estimatedTotalRooms = roomDetails?.length;
+  const estimatedBookings = bookings?.length;
+  const occupancyRate = (estimatedBookings / estimatedTotalRooms) * 100;
+
+  //estimate of rooms and bookings
+  const estimatedRate = occupancyRate
+  const estimatedRateInPercentage = estimatedRate || 0;
+  const rate = (estimatedRateInPercentage / estimatedRate) * 100
+
   const CardData = [
-    { title: "Total Bookings", counts: "$45,2K", icon: <IoDuplicateOutline size={25} />, rate: "0.2%" },
-    { title: "Total Rooms", counts: "$3.456K", icon: <IoBedOutline size={25} />, rate: "0.43%" },
-    { title: "Revenue", counts: "$45,2K", icon: <IoCashOutline size={25} />, rate: "0.55%" },
-    { title: "Estimate", counts: "$45,2K", icon: <BsHouses size={25} />, rate: "22.2%" },
+    { title: "Total Bookings", counts: bookings?.length, icon: <IoDuplicateOutline size={25} />, rate: 0.2 },
+    { title: "Total Rooms", counts: roomDetails?.length, icon: <IoBedOutline size={25} />, rate: occupancyPercentage.toFixed(2) + "%" },
+    { title: "Estimate", counts: occupancyRate, icon: <BsHouses size={25} />, rate: rate + "%" },
   ]
 
-  const data: Payment[] = [
-    {
-      id: "m5gr84i9",
-      guestName: "John Doe",
-      status: "success",
-      checkInDate: "2024-02-10",
-      checkOutDate: "2024-02-15",
-      roomType: "Deluxe Suite",
-    },
-    {
-      id: "3u1reuv4",
-      guestName: "Alice Smith",
-      status: "success",
-      checkInDate: "2024-02-12",
-      checkOutDate: "2024-02-17",
-      roomType: "Standard Room",
-    },
-    {
-      id: "derv1ws0",
-      guestName: "Bob Johnson",
-      status: "processing",
-      checkInDate: "2024-02-14",
-      checkOutDate: "2024-02-20",
-      roomType: "Executive Suite",
-    },
-    {
-      id: "5kma53ae",
-      guestName: "Emily Wilson",
-      status: "success",
-      checkInDate: "2024-02-16",
-      checkOutDate: "2024-02-21",
-      roomType: "Standard Room",
-    },
-    {
-      id: "bhqecj4p",
-      guestName: "Michael Brown",
-      status: "failed",
-      checkInDate: "2024-02-18",
-      checkOutDate: "2024-02-23",
-      roomType: "Deluxe Suite",
-    },
-  ];
-  
   return (
     <section className="h-auto">
-      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
         {CardData.map((data, index) => (
           <CardDataStats key={index} title={data.title} total={data.counts} rate={data.rate} levelUp>
             {data.icon}
@@ -76,7 +59,7 @@ const ECommerce: React.FC = () => {
       </div>
 
       <div className="">
-        <DataTableDemo data={data} />
+        <DataTableDemo data={bookings || []} />
       </div>
     </section>
   );

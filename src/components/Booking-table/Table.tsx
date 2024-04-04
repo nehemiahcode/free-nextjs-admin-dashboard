@@ -47,18 +47,19 @@ interface DataTableDemoProps {
 }
 
 export type Payment = {
-  id: string;
-  guestName: string;
-  checkInDate: string;
-  checkOutDate: string;
-  roomType: string;
-  status: "pending" | "processing" | "success" | "failed";
+  _id: string;
+  dateFrom: string;
+  dateTo: string;
+  email: string;
+  price:number;
+  guests:number;
+  status: string;
 };
 
 
 export const columns: ColumnDef<Payment>[] = [
   {
-    id: "select",
+    id: "_id",
     header: ({ table }) => (
       <Checkbox
         checked={
@@ -87,39 +88,47 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "guestName",
+    accessorKey: "email",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Guest Name
+         Emails
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("guestName")}</div>,
+    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   },
+
   {
-    accessorKey: "checkInDate",
-    header: "CheckIn-Date",
+    accessorKey: "price",
+    header: "Price",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("checkInDate")}</div>
+      <div className="capitalize">{row.getValue("price")}</div>
     ),
   },
   {
-    accessorKey: "checkOutDate",
-    header: "checkOut-Date",
+    accessorKey: "guests",
+    header: "Guests",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("checkOutDate")}</div>
+      <div className="capitalize">{row.getValue("guests")}</div>
     ),
   },
   {
-    accessorKey: "roomType",
-    header: "Room Type",
+    accessorKey: "dateFrom",
+    header: "Date From",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("roomType")}</div>
+      <div className="capitalize">{row.getValue("dateFrom")}</div>
+    ),
+  },
+  {
+    accessorKey: "dateTo",
+    header: "Date to",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("dateTo")}</div>
     ),
   },
   {
@@ -140,7 +149,7 @@ export const columns: ColumnDef<Payment>[] = [
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
               className=" hover:bg-gray cursor-pointer"
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => navigator.clipboard.writeText(payment._id)}
             >
               Copy payment ID
             </DropdownMenuItem>
@@ -190,15 +199,15 @@ export function DataTableDemo({ data }: DataTableDemoProps) {
       <div className=" space-y-3 py-2">
         <Input
           placeholder="Filter emails..."
-          value={(table.getColumn("guestName")?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event: any) =>
-            table.getColumn("guestName")?.setFilterValue(event.target.value)
+            table.getColumn("email")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-sm dark:bg-black"
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button variant="outline" className="ml-auto dark:bg-black">
               Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
