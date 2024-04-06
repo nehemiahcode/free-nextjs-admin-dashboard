@@ -5,9 +5,10 @@ import CardDataStats from "../CardDataStats";
 import { IoDuplicateOutline } from "react-icons/io5";
 import { BsHouses } from "react-icons/bs";
 import { IoBedOutline } from "react-icons/io5";
-import { DataTableDemo, } from "../Booking-table/Table";
+import { DataTableDemo, } from "../Bookings/Table";
 import useGetBookings from "@/hooks/useGetBookings";
 import useGetRooms from "@/hooks/useGetRooms";
+import useGetBookingDetails from "@/hooks/useGetBookingById";
 
 
 
@@ -20,6 +21,7 @@ const ECommerce: React.FC = () => {
   const { roomDetails, isLoading } = useGetRooms({
     userToken: localStorage.getItem("token") || "",
   })
+
 
 
   const totalCapacity = roomDetails?.length; // Total capacity of the room
@@ -59,7 +61,8 @@ const ECommerce: React.FC = () => {
       </div>
 
       <div className="">
-        <DataTableDemo data={bookings || []} />
+      <DataTableDemo data={bookings || []} />
+
       </div>
     </section>
   );

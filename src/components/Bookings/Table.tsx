@@ -5,7 +5,7 @@ import {
   CaretSortIcon,
   ChevronDownIcon,
   DotsHorizontalIcon,
-} from  "@radix-ui/react-icons";
+} from "@radix-ui/react-icons";
 
 import {
   ColumnDef,
@@ -40,10 +40,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { useRouter } from "next/navigation";
 
 
 interface DataTableDemoProps {
   data: Payment[];
+  // Add bookingId prop
 }
 
 export type Payment = {
@@ -51,10 +53,11 @@ export type Payment = {
   dateFrom: string;
   dateTo: string;
   email: string;
-  price:number;
-  guests:number;
+  price: number;
+  guests: number;
   status: string;
 };
+
 
 
 export const columns: ColumnDef<Payment>[] = [
@@ -95,7 +98,7 @@ export const columns: ColumnDef<Payment>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-         Emails
+          Emails
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -135,7 +138,8 @@ export const columns: ColumnDef<Payment>[] = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const payment = row.original
+      const payment = row.original;
+      const router = useRouter();
 
       return (
         <DropdownMenu>
@@ -154,7 +158,7 @@ export const columns: ColumnDef<Payment>[] = [
               Copy payment ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className=" hover:bg-gray cursor-pointer">View customer</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push(`/bookings/${payment._id}`)} className=" hover:bg-gray cursor-pointer">View detials</DropdownMenuItem>
             <DropdownMenuItem className=" hover:bg-gray cursor-pointer">View payment details</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -166,7 +170,8 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 
-export function DataTableDemo({ data }: DataTableDemoProps) {
+export function DataTableDemo({data }: DataTableDemoProps) {
+
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -259,9 +264,10 @@ export function DataTableDemo({ data }: DataTableDemoProps) {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+            
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="whitespace-nowrap text-graydark dark:text-white">
+                    <TableCell  key={cell.id} className="whitespace-nowrap text-graydark dark:text-white">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -304,7 +310,7 @@ export function DataTableDemo({ data }: DataTableDemoProps) {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            Next 
           </Button>
         </div>
       </div>

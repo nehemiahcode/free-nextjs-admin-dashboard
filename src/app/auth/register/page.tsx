@@ -52,7 +52,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="dark:bg-gray-950 flex min-h-screen items-center justify-center px-4">
+    <div className="dark:bg-gray-950  bg-gradient-to-tr from-slate-300 via-white to-slate-300 flex min-h-screen items-center justify-center px-4">
       <div className="dark:bg-gray-900 w-full max-w-sm rounded-lg bg-white px-8 py-3 shadow-md">
         <h1 className="dark:text-gray-200 mb-4 text-center text-2xl font-bold">
           Create an account

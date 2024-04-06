@@ -117,12 +117,13 @@ export function UpdateRoom({ Trigger, userToken, roomId, roomDetails }: UpdateRo
                                                 Description
                                             </label>
                                             <Field
+                                                as="textarea"
                                                 type="text"
                                                 id="description"
                                                 name="description"
                                                 placeholder={`${roomDetails.description.substring(0, 20)}....`}
                                                 disabled={isSubmitting}
-                                                className="w-full rounded-md border border-gray-[#f3f2f2] px-3 bg-white py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                                                className="w-full rounded-md border border-gray-[#f3f2f2] h-20 resize-none px-3 bg-white py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                                             />
                                             {errors.description && touched.description ? (
                                                 <div className=" text-xs text-red">{errors.description}</div>
@@ -185,12 +186,13 @@ export function UpdateRoom({ Trigger, userToken, roomId, roomDetails }: UpdateRo
                                                 Description
                                             </label>
                                             <Field
+                                                as="textarea"
                                                 type="text"
                                                 id="description"
                                                 name="description"
                                                 placeholder={`${roomDetails.description.substring(0, 20)}....`}
                                                 disabled={isSubmitting}
-                                                className="w-full rounded-md border border-gray-[#f3f2f2] px-3 bg-white py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
+                                                className="w-full rounded-md border border-gray-[#f3f2f2] h-20 resize-none px-3 bg-white py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                                             />
                                             {errors.description && touched.description ? (
                                                 <div className=" text-xs text-red">{errors.description}</div>

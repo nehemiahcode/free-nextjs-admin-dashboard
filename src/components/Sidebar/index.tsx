@@ -103,7 +103,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <Link
                   href="/"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname === "/" && "bg-graydark text-white dark:bg-meta-4"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-black dark:text-bodydark1 duration-300 ease-in-out dark:hover:bg-meta-4 hover:bg-slate-300 dark:hover:bg-meta-4 ${pathname === "/" && "bg-graydark text-white dark:bg-meta-4"
                     }`}
                 >
                   <LuLayoutDashboard />
@@ -114,7 +114,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <Link
                   href="/rooms"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium  text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname === "/rooms" && "bg-graydark text-white dark:bg-meta-4"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium  text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-slate-300 dark:hover:bg-meta-4 ${pathname === "/rooms" && "bg-graydark text-white dark:bg-meta-4"
                     }`}
                 >
                   <LuLayoutDashboard />
@@ -126,7 +126,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <Link
                   href="/profile"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium  text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname === "/profile" && "bg-graydark text-white dark:bg-meta-4"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium  text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-slate-300 dark:hover:bg-meta-4 ${pathname === "/profile" && "bg-graydark text-white dark:bg-meta-4"
                     }`}
                 >
                   <CiUser />
@@ -139,7 +139,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <li>
                 <Link
                   href="/settings"
-                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium  text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname === "/settings" &&
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium  text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-slate-300 dark:hover:bg-meta-4 ${pathname === "/settings" &&
                     "bg-graydark text-white dark:bg-meta-4"
                     }`}
                 >

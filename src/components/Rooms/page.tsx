@@ -45,18 +45,17 @@ export default function RoomsPage({ RoomCard, isLoading }: RoomCards) {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 lg:p-0">
                 {isLoading ? (
                     // Skeletons for loading
-                    Array.from({ length: 6 }).map((_, index) => (
+                    Array.from({ length: 3 }).map((_, index) => (
                         <div key={index} className=" grid">
                             <Skeleton className=" h-[300px] my-3 bg-slate-300 dark:bg-slate-300" />
-                            <Skeleton className="h-[300px] bg-slate-300 dark:bg-slate-300" />
                         </div>
                     ))
                 ) : filteredRoomCards.length > 0 ? (
                     // Render room cards
-                    filteredRoomCards.map((card, _id) => (
+                    [...filteredRoomCards].reverse().map((card, _id) => (
                         <Link href={`/rooms/${card._id}`}
-                        key={_id}
-                        className="flex h-[350px] flex-col rounded-lg bg-white shadow-11 dark:bg-slate-950"
+                          key={_id}
+                          className="flex h-[350px] flex-col rounded-lg bg-white shadow-11 dark:bg-slate-950"
                     >
                         <div className="relative h-[50%]">
                             <Image
@@ -66,38 +65,6 @@ export default function RoomsPage({ RoomCard, isLoading }: RoomCards) {
                                 objectFit="cover"
                                 className=" rounded-t-lg object-scale-down"
                             />
-                            {/* <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button
-                                        size={"icon"}
-                                        className="hover:bg-gray-400 absolute right-2 top-2 z-30 rounded-full bg-white text-black"
-                                    >
-                                        <SlOptionsVertical size={20} />
-                                    </Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent
-                                    align="end"
-                                    className=" max-w-sm  rounded bg-white"
-                                >
-                                    <UpdateRoom  Trigger={<h1
-                                        className=" hover:bg-gray-3 text-sm text-center md:cursor-pointer"
-                                    >
-                                        edit
-                                    </h1>} />
-                                    <DropdownMenuRadioItem
-                                        value="right"
-                                        className=" hover:bg-gray-3 md:cursor-pointer"
-                                    >
-                                        View details
-                                    </DropdownMenuRadioItem>
-                                    <DropdownMenuRadioItem
-                                        value="bottom"
-                                        className=" hover:bg-gray-3 md:cursor-pointer"
-                                    >
-                                        Delete
-                                    </DropdownMenuRadioItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu> */}
                         </div>
                         <div className="flex flex-col p-2">
                             <div className="flex items-center gap-x-2">
@@ -143,7 +110,7 @@ export default function RoomsPage({ RoomCard, isLoading }: RoomCards) {
                     ))
                 ) : (
                     // No rooms found message
-                    <div className="flex items-center gap-x-4 rounded-md bg-white p-3 shadow-10 dark:bg-slate-900 sm:max-w-sm ">
+                    <div className="flex items-center gap-x-4 justify-center rounded-md bg-white p-3 shadow-10 dark:bg-slate-900 sm:max-w-sm ">
                         <span>
                             <RiErrorWarningLine size={25} />
                         </span>
