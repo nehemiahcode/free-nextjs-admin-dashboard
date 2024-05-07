@@ -246,11 +246,27 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 1px;
 }
 
-.sidebar::-webkit-scrollbar-track {
-    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
-}
-
 .sidebar::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     border-radius: 20px;
 }
+
+.user-card {
+    @apply ;
+  }
+
+  .user-card_avatar {
+    @apply flex flex-1 items-start justify-start gap-3  sm:items-center;
+  }
+
+  .user-card_btn {
+    @apply h-auto min-w-[74px] rounded-lg bg-primary-500 text-[12px] text-white !important;
+  }
+
+  /* .searchbar {
+    @apply flex gap-1 rounded-lg bg-dark-3 px-4 py-2;
+  }
+
+  .searchbar_input {
+    @apply border-none bg-dark-3 text-base-regular text-light-4 outline-none !important;
+  } */

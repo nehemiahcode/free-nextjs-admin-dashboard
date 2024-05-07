@@ -40,8 +40,8 @@ const SignUp: React.FC = () => {
         },
       );
       if (response.ok) {
-        toast.success("Registration successful");
-        router.push("/auth/signin");
+        toast.success("Registration successfull");
+        router.push("/auth/login");
       } else {
         const data = await response.json();
         toast.error(data.message || "Registration failed");

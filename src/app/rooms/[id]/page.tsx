@@ -31,7 +31,7 @@ export default function RoomDetailsPage({ params }: { params: { id: string } }) 
         };
 
         fetchRooms();
-    }, [params.id]);
+    }, [params.id, userToken]);
 
     // const handleAddToWishlist = async () => {
     //     try {

@@ -17,9 +17,6 @@ const BookingDetailsComp = ({ bookingDetails }:any) => {
     {bookingDetails.map((book: { _id: React.Key | null | undefined; fullname: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }) => (
         <h1 key={book._id}>{book.fullname}</h1>
     ))}
-
-
-
     </div>
   );
 };

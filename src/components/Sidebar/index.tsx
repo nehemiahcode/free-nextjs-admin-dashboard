@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import SidebarLinkGroup from "./SidebarLinkGroup";
-import { LuLayoutDashboard } from "react-icons/lu";
+import { LuLayoutDashboard, LuUser } from "react-icons/lu";
 import { CiUser } from "react-icons/ci";
 import { IoMdSettings } from "react-icons/io";
 import { IoArrowBackOutline } from "react-icons/io5";
@@ -145,6 +145,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 >
                   <IoMdSettings />
                   Settings
+                </Link>
+              </li>
+               <li>
+                <Link
+                  href="/users"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium  text-black dark:text-bodydark1 duration-300 ease-in-out hover:bg-slate-300 dark:hover:bg-meta-4 ${pathname === "/users" &&
+                    "bg-graydark text-white dark:bg-meta-4"
+                    }`}
+                >
+                  <LuUser />
+                          Users
                 </Link>
               </li>
               {/* <!-- Menu Item Settings --> */}

@@ -34,7 +34,7 @@ export default function RoomDetailsPage({ params }: { params: { bookingId: strin
         };
 
         fetchBookingDetails();
-    }, [params.bookingId]);
+    }, [params.bookingId, userToken]);
 
 
     return (

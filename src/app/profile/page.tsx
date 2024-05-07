@@ -41,7 +41,7 @@ const Profile = () => {
     if (userId) {
       fetchUserDetails();
     }
-  }, [userId]);
+  }, [userId, userToken]);
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-242.5">
@@ -58,6 +58,7 @@ const Profile = () => {
             />
           </div>
         </div>
+        
         <div className="flex flex-col">
           <div className="flex flex-col w-full">
           <h1 className="font-bold text-center text-xl">{userData.firstName} {userData.lastName}</h1>

@@ -74,7 +74,7 @@ export default function DetailedRoomsPage({ RoomDetail, handleRateRoom, Id, room
                         roomId={roomId}
                         roomDetails={roomDetails}
                         Trigger={<Button className=" rounded-full px-5 bg-blue-600 text-white ">Edit <MdEdit size={20} /></Button>} /> 
-
+                    
                     {/* {!userId &&    <AlertDialogBox  Title='Rate this room' children={<div className='flex flex-col gap-2'>
                         <input type="tel" inputMode='numeric' className='p-2 border rounded' min="0" max="5" step="0.1" value={rating} onChange={(e) => setRating(parseFloat(e.target.value))} />
                         <Button onClick={handleRateRoom}>Rate Room</Button>

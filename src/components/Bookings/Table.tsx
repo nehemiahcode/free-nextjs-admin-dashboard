@@ -61,6 +61,7 @@ export type Payment = {
 
 
 export const columns: ColumnDef<Payment>[] = [
+  
   {
     id: "_id",
     header: ({ table }) => (
