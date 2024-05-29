@@ -140,7 +140,6 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const payment = row.original;
-      const router = useRouter();
 
       return (
         <DropdownMenu>
@@ -159,8 +158,8 @@ export const columns: ColumnDef<Payment>[] = [
               Copy payment ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => router.push(`/bookings/${payment._id}`)} className=" hover:bg-gray cursor-pointer">View detials</DropdownMenuItem>
-            <DropdownMenuItem className=" hover:bg-gray cursor-pointer">View payment details</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => location.replace(`/bookings/${payment._id}`)} className=" hover:bg-gray cursor-pointer">View payment details</DropdownMenuItem>
+            {/* <DropdownMenuItem className=" hover:bg-gray cursor-pointer">View payment details</DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
       )
