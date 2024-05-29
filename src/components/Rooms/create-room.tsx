@@ -108,11 +108,11 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                 <DrawerTrigger asChild>
                     {Trigger}
                 </DrawerTrigger>
-                <DrawerContent className="bg-white px-4">
+                <DrawerContent className="bg-white px-4 dark:bg-black">
                     <div className="mx-auto w-full max-w-sm">
                         <DrawerHeader>
                             <div className="py-5">
-                                <DrawerTitle className="text-blue-600 dark:text-red">Create Room</DrawerTitle>
+                                <DrawerTitle className="text-blue-600 dark:text-white">Create Room</DrawerTitle>
                             </div>
                         </DrawerHeader>
                         <form onSubmit={handleSubmit} className="max-h-[500px] py-5  overflow-y-auto">
@@ -131,7 +131,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     id="description" 
                                     value={formData.description} 
                                     onChange={(e) => setFormData({ ...formData, description: e.target.value })} 
-                                    placeholder="Description" className="focus:border-blue-500 rounded resize-none h-[100px] p-2 w-full border outline-none text-sm"
+                                    placeholder="Description" className="focus:border-blue-500 rounded resize-none h-[100px] p-2 w-full bg-gray border outline-none text-sm"
                                 ></Textarea>
                                 <Input 
                                     type="text" 
@@ -140,7 +140,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     value={formData.price} 
                                     onChange={(e) => setFormData({ ...formData, price: e.target.value })} 
                                     placeholder="Price" 
-                                    className="focus:border-blue-500 rounded outline-none p-2 border text-sm" 
+                                    className="focus:border-blue-500 bg-gray rounded outline-none p-2 border text-sm" 
                                 />
                                 <Input 
                                     type="text" 
@@ -149,7 +149,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     value={formData.amenities} 
                                     onChange={(e) => setFormData({ ...formData, amenities: e.target.value })} 
                                     placeholder="Amenities" 
-                                    className="focus:border-blue-500 rounded outline-none p-2 border text-sm" 
+                                    className="focus:border-blue-500 bg-gray rounded outline-none p-2 border text-sm" 
                                 />
                                 <HotelImageUploader />
                             </div>
@@ -167,9 +167,9 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                     <SheetTrigger asChild>
                         {Trigger}
                     </SheetTrigger>
-                    <SheetContent side="right" className="w-[400px] z-[9999] sm:w-[540px] px-2 bg-white" >
+                    <SheetContent side="right" className="w-[400px] z-[9999] sm:w-[540px] px-2 bg-white dark:bg-black" >
                         <SheetHeader>
-                            <SheetTitle>Create room</SheetTitle>
+                            <SheetTitle className="text-blue-600 dark:text-white">Create room</SheetTitle>
                         </SheetHeader>
                         <form onSubmit={handleSubmit} className="max-h-[500px] py-5  overflow-y-auto">
                             <div className=" flex flex-col gap-3 p-3">
@@ -180,14 +180,14 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     value={formData.name} 
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
                                     placeholder="Room name" 
-                                    className="focus:border-blue-500 rounded p-2 outline-none border text-sm" 
+                                    className="focus:border-blue-500 bg-gray rounded p-2 outline-none border text-sm" 
                                 />
                                 <Textarea 
                                     name="description" 
                                     id="description" 
                                     value={formData.description} 
                                     onChange={(e) => setFormData({ ...formData, description: e.target.value })} 
-                                    placeholder="Description" className="focus:border-blue-500 rounded resize-none h-[100px] p-2 w-full border outline-none text-sm"
+                                    placeholder="Description" className="focus:border-blue-500 bg-gray rounded resize-none h-[100px] p-2 w-full border outline-none text-sm"
                                 ></Textarea>
                                 <Input 
                                     type="text" 
@@ -196,7 +196,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     value={formData.price} 
                                     onChange={(e) => setFormData({ ...formData, price: e.target.value })} 
                                     placeholder="Price" 
-                                    className="focus:border-blue-500 rounded outline-none p-2 border text-sm" 
+                                    className="focus:border-blue-500 bg-gray rounded outline-none p-2 border text-sm" 
                                 />
                                 <Input 
                                     type="text" 
@@ -205,14 +205,14 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     value={formData.amenities} 
                                     onChange={(e) => setFormData({ ...formData, amenities: e.target.value })} 
                                     placeholder="Amenities" 
-                                    className="focus:border-blue-500 rounded outline-none p-2 border text-sm" 
+                                    className="focus:border-blue-500 rounded bg-gray outline-none p-2 border text-sm" 
                                 />
                                 <HotelImageUploader/>
                             </div>
                             <SheetFooter className="flex flex-col gap-3 items-center">
                                 <Button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white my-3 flex-1">Submit</Button>
                                 <SheetClose asChild className="flex-1">
-                                    <Button type="button" className="w-full text-white bg-red">Close</Button>
+                                    <Button type="button" className="w-full text-white bg-red hover:bg-red/50">Close</Button>
                                 </SheetClose>
                             </SheetFooter>
                         </form>

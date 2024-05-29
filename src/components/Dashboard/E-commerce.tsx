@@ -11,8 +11,6 @@ import useGetRooms from "@/hooks/useGetRooms";
 import useGetBookingDetails from "@/hooks/useGetBookingById";
 
 
-
-
 const ECommerce: React.FC = () => {
   const { bookings, loading } = useGetBookings({
     userToken: localStorage.getItem("token") || "",
@@ -22,18 +20,14 @@ const ECommerce: React.FC = () => {
     userToken: localStorage.getItem("token") || "",
   })
 
-
-
   const totalCapacity = roomDetails?.length; // Total capacity of the room
   const occupancy = roomDetails?.length || 0; // Current occupancy
 
   // Calculate occupancy percentage
   const occupancyPercentage = (occupancy / totalCapacity) * 100;
-
-
   const estimatedTotalRooms = roomDetails?.length;
   const estimatedBookings = bookings?.length;
-  const occupancyRate = (estimatedBookings / estimatedTotalRooms) * 100;
+  const occupancyRate = (estimatedBookings / estimatedTotalRooms) * 1;
 
   //estimate of rooms and bookings
   const estimatedRate = occupancyRate
@@ -43,7 +37,7 @@ const ECommerce: React.FC = () => {
   const CardData = [
     { title: "Total Bookings", counts: bookings?.length, icon: <IoDuplicateOutline size={25} />, rate: 0.2 },
     { title: "Total Rooms", counts: roomDetails?.length, icon: <IoBedOutline size={25} />, rate: occupancyPercentage.toFixed(2) + "%" },
-    { title: "Estimate", counts: occupancyRate, icon: <BsHouses size={25} />, rate: rate + "%" },
+    { title: "Estimate", counts: occupancyRate, icon: <BsHouses size={25} />, rate:  rate },
   ]
 
   return (
