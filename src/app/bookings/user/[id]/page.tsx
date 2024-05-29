@@ -9,7 +9,6 @@ import { toast } from "sonner";
 
 export default function RoomDetailsPage({ params }: { params: { id: string } }) {
     const userToken = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
     const [bookingDetails, setBookingDetails] = useState([]);
 
 
@@ -35,7 +34,7 @@ export default function RoomDetailsPage({ params }: { params: { id: string } }) 
         };
 
         fetchUserBookingDetails();
-    }, [params.id]);
+    }, [params.id, userToken]);
 
 
     return (

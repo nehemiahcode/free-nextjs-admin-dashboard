@@ -14,7 +14,7 @@ userCard:any[] | null
   
   
     return (
-     <>
+     <div className=" grid md:grid-cols-2 gap-3">
      {userCard?.map((user, _id) => (
          <article key={_id} className='flex flex-col justify-between gap-5 bg-slate-900 my-4 p-3  shadow-5 rounded-xl max-xs:rounded-xl max-xs:p-4 xs:flex-row xs:items-center'>
          <div className='user-card_avatar'>
@@ -43,7 +43,7 @@ userCard:any[] | null
          </Button>
        </article>
      ))}
-     </>
+     </div>
     );
   }
   

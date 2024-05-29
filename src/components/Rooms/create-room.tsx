@@ -112,7 +112,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                     <div className="mx-auto w-full max-w-sm">
                         <DrawerHeader>
                             <div className="py-5">
-                                <DrawerTitle>Create Room</DrawerTitle>
+                                <DrawerTitle className="text-blue-600 dark:text-red">Create Room</DrawerTitle>
                             </div>
                         </DrawerHeader>
                         <form onSubmit={handleSubmit} className="max-h-[500px] py-5  overflow-y-auto">
@@ -124,7 +124,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     value={formData.name} 
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
                                     placeholder="Room name" 
-                                    className="focus:border-blue-500 rounded p-2 outline-none border text-sm" 
+                                    className="focus:border-blue-500 bg-gray rounded p-2 outline-none border text-sm" 
                                 />
                                 <Textarea 
                                     name="description" 
@@ -151,11 +151,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     placeholder="Amenities" 
                                     className="focus:border-blue-500 rounded outline-none p-2 border text-sm" 
                                 />
-                                <HotelImageUploader
-                                    photo1={formData.photo1}
-                                    otherPhotos1={formData.otherPhotos1}
-                                    fieldChange={(files) => setFormData({ ...formData, photo1: files?.[0], otherPhotos1: files.slice(1)})}
-                                />
+                                <HotelImageUploader />
                             </div>
                             <DrawerFooter className="flex flex-col gap-3">
                                 <Button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white my-3">Submit</Button>
@@ -211,11 +207,7 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
                                     placeholder="Amenities" 
                                     className="focus:border-blue-500 rounded outline-none p-2 border text-sm" 
                                 />
-                                <HotelImageUploader
-                                    photo1={formData.photo1}
-                                    otherPhotos1={formData.otherPhotos1}
-                                    fieldChange={(files) => setFormData({ ...formData, photo1: files?.[0], otherPhotos1: files.slice(1)})}
-                                />
+                                <HotelImageUploader/>
                             </div>
                             <SheetFooter className="flex flex-col gap-3 items-center">
                                 <Button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white my-3 flex-1">Submit</Button>
