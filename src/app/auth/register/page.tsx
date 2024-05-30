@@ -81,7 +81,7 @@ const SignUp: React.FC = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
-				  disabled={isSubmitting}
+                  disabled={isSubmitting}
                   className="w-full rounded-md border border-gray-[#f3f2f2] px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 />
                 {errors.firstName && touched.firstName ? (
@@ -100,7 +100,7 @@ const SignUp: React.FC = () => {
                   type="text"
                   id="lastName"
                   name="lastName"
-				           disabled={isSubmitting}
+                  disabled={isSubmitting}
                   className="w-full rounded-md border px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 />
                 {errors.lastName && touched.lastName ? (
@@ -116,10 +116,10 @@ const SignUp: React.FC = () => {
                 </label>
                 <Field
                   type="tel"
-				          inputMode="numeric"
+                  inputMode="numeric"
                   id="phoneNumber"
                   name="phoneNumber"
-				          disabled={isSubmitting}
+                  disabled={isSubmitting}
                   className="w-full rounded-md border px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 />
                 {errors.phoneNumber && touched.phoneNumber ? (
@@ -137,7 +137,7 @@ const SignUp: React.FC = () => {
                   type="email"
                   id="email"
                   name="email"
-				  disabled={isSubmitting}
+                  disabled={isSubmitting}
                   className="w-full rounded-md border px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 />
                 {errors.email && touched.email ? (
@@ -155,7 +155,7 @@ const SignUp: React.FC = () => {
                   type="password"
                   id="password"
                   name="password"
-				  disabled={isSubmitting}
+                  disabled={isSubmitting}
                   className="w-full rounded-md border px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500"
                 />
                 {errors.password && touched.password ? (

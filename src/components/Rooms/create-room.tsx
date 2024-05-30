@@ -46,10 +46,10 @@ export function CreateRoom({ Trigger }: ChangestoRoom) {
         otherPhotos1: FileWithPath[] | undefined;
         location: [number, number];
     }>({
-        name: "Room4",
-        description: "$ bedroom flat",
-        price: "500",
-        amenities: "Frideg",
+        name: "",
+        description: "",
+        price: "",
+        amenities: "",
         photo1: undefined,
         otherPhotos1: [],
         location: getLocation(),
